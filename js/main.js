@@ -21,12 +21,21 @@ for (i = 0; i < numbersArray.length; i++) {
 
     //porto elemento in pagina
     divContainer.append(numbers);
+
+    // creo timer 
+    setTimeout(function () {
+
+        // rimuovo classe
+        numbers.classList.remove("display");
+
+        // aggiungo classe per non mostrare i  numeri
+        numbers.classList.add("no-display");
+
+    }, 30000);
+
+
     
 }
-
-
-
-
 
 
 
