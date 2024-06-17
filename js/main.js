@@ -14,12 +14,18 @@ console.log(numbersArray);
 // creo ciclo per portare i numeri in pagina
 for (i = 0; i < numbersArray.length; i++) {
 
-    let numbers = numbersArray[i];
-    console.log(numbers);
+    // creo elemento con numeri
+    let numbers = createElementWClass("div", "display");
 
-    // porto i numeri in pagina
-    divContainer.innerHTML += `<p>${numbers}</p>`;
+    numbers.innerHTML = numbersArray[i];
+
+    //porto elemento in pagina
+    divContainer.append(numbers);
+    
 }
+
+
+
 
 
 
@@ -60,3 +66,4 @@ function createRandomNumArray (min, max, arrayLenght) {
 
     return randomArray
 }
+
