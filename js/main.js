@@ -11,6 +11,17 @@ const divContainer = document.querySelector(".container");
 const numbersArray = createRandomNumArray(1, 100, 5);
 console.log(numbersArray);
 
+// creo array con numeri inseriti
+const inputNumberArray = [];
+
+// variabile per numeri iniziali
+let initialNumContainer = document.querySelector(".initial-result");
+
+// variabile per numeri inseriti da utente
+let userNumContainer = document.querySelector(".box");
+
+
+
 // creo ciclo per portare i numeri in pagina
 for (i = 0; i < numbersArray.length; i++) {
 
@@ -30,16 +41,13 @@ for (i = 0; i < numbersArray.length; i++) {
 
         // aggiungo classe per non mostrare i  numeri
         numbers.classList.add("no-display");
+
         
-    }, 3000);
+    }, 30000);
 
+    
 
-}
-
-// creo array con numeri inseriti
-const inputNumberArray = [];
-
-for (index = 0; index < 5; index++) {
+    
     // creo timer per prompt
     setTimeout(function() {
 
@@ -49,23 +57,44 @@ for (index = 0; index < 5; index++) {
         // pusho i numeri nell'array
         inputNumberArray.push(inputNumber);
         console.log(inputNumberArray);
-        
-    }, 3500);
+
+        // porto in pagina i numeri iniziali
+        initialNumContainer.append(numbers);
+        // rimuovo classe
+        numbers.classList.remove("no-display");
+        // aggiungo classe per mostrare i  numeri
+        numbers.classList.add("display");
+
+
+        // creo elemento per numeri inseriti e porto in pagina
+        let userNumbers = createElementWClass("div", "display");
+        userNumbers.innerHTML = inputNumber;
+        userNumContainer.append(userNumbers);
+
+
+        // condizioni per cui numeri sono corretti 
+        if (numbersArray.includes(inputNumber)) { //se corrispondono li coloro di verde
+            
+            userNumbers.classList.add("correct");
+        } else if (!numbersArray.includes(inputNumber)) { //altrimenti di rosso
+            
+            userNumbers.classList.add("not-correct");
+        }
+
+        // comunico il risultato
+        let score = document.getElementsByClassName("correct").length;
+
+        document.getElementById("final-result").innerHTML = score;
+
+
+
+    }, 30500);
 
     
+    
+
+
 }
-
-// if (inputNumberArray[index] === numbersArray[i]) {
-//     let initialNumbers = createElementWClass("div", "result");
-
-//     initialNumbers.innerHTML = numbersArray[i];
-
-//     divContainer.append(initialNumbers);
-
-//     let result = createElementWClass ("div", "result");
-//     result.innerHTML = index;
-//     divContainer.append(result);
-// }
 
 
 
