@@ -22,7 +22,7 @@ for (i = 0; i < numbersArray.length; i++) {
     //porto elemento in pagina
     divContainer.append(numbers);
 
-    // creo timer 
+    // creo timer per far scomparire i numeri
     setTimeout(function () {
 
         // rimuovo classe
@@ -30,12 +30,44 @@ for (i = 0; i < numbersArray.length; i++) {
 
         // aggiungo classe per non mostrare i  numeri
         numbers.classList.add("no-display");
+        
+    }, 3000);
 
-    }, 30000);
 
+}
+
+// creo array con numeri inseriti
+const inputNumberArray = [];
+
+for (index = 0; index < 5; index++) {
+    // creo timer per prompt
+    setTimeout(function() {
+
+        // prompt per inserire i numeri
+        let inputNumber = parseInt(prompt("scrivi i numeri che ricordi"));
+
+        // pusho i numeri nell'array
+        inputNumberArray.push(inputNumber);
+        console.log(inputNumberArray);
+        
+    }, 3500);
 
     
 }
+
+// if (inputNumberArray[index] === numbersArray[i]) {
+//     let initialNumbers = createElementWClass("div", "result");
+
+//     initialNumbers.innerHTML = numbersArray[i];
+
+//     divContainer.append(initialNumbers);
+
+//     let result = createElementWClass ("div", "result");
+//     result.innerHTML = index;
+//     divContainer.append(result);
+// }
+
+
 
 
 
